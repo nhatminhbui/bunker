@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+     <title>Chaos</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+     <meta charset="utf-8" />
+    
+     <link rel="icon" href="https://nhatminhbui.github.io/favicon.ico">
+     <link rel="apple-touch-icon" href="https://nhatminhbui.github.io/favicon.ico">	
+	
+     <link rel="stylesheet" type="text/css" href="chaos.css" />
+	<link href="prettify.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="prettify.js"></script>
+</head>
+
+<body onload="prettyPrint()">
+	<div class="wrap">
+		<h1 align="center">Nhat Bui</h1>
+		
+		I'm an engineer working on database, and computational linguistics for a hobby.
+		
+		<p>Many people find that a spelling checker is all they need; they know how to spell and they just want their occasional slips to be pointed out to them. People who have trouble with spelling, however, need something more. Suppose you have written neumonia and the checker has told you this is wrong. If you don't know how to spell pneumonia, you're stuck. The dictionary is no help. You want the computer to tell you the correct spelling.</p>
+
+<pre class="prettyprint">
+def edits1(word):
+	"All edits that are one edit away from `word`."
+	letters    = 'abcdefghijklmnopqrstuvwxyz'
+	splits     = [(word[:i], word[i:])    for i in range(len(word) + 1)]
+	deletes    = [L + R[1:]               for L, R in splits if R]
+	transposes = [L + R[1] + R[0] + R[2:] for L, R in splits if len(R)>1]
+	replaces   = [L + c + R[1:]           for L, R in splits if R for c in letters]
+	inserts    = [L + c + R               for L, R in splits for c in letters]
+	return set(deletes + transposes + replaces + inserts)
+
+def edits2(word): 
+	"All edits that are two edits away from `word`."
+	return (e2 for e1 in edits1(word) for e2 in edits1(e1))
+</pre>
+
+<p>To correct someone's spelling errors, you have to <b>be able</b> to guess what words the person meant and you have to be able to spell them correctly. People generally find the first part easy but the second part <i>harder</i>; most people would understand `She was excused swimming because of her verouka,' but they would not be able to correct it. For computers, it's the other way round. <b><i>Producing</i></b> a correct spelling is easy - they can store a complete dictionary and retrieve any word as required; the hard part is deciding which word was intended. </p>
+		<ul>
+			<li> <b>Blog:</b> <a href="/blog">/blog</a>.
+			<li> <b>Contact:</b> <a href="mailto:nhatbui@linuxmail.org">nhatbui[at]linuxmail[dot]org. 
+		</ul>
+		
+	</div>
+</body>
+
+</html>
+

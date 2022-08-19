@@ -1,0 +1,45 @@
+body {
+  font-family: serif;
+  font-size: 16px;
+  color: black;
+  font-variant-numeric: oldstyle-nums;
+  line-height: 1.3em;
+  letter-spacing: 0.02em;
+  hyphens: auto;
+  margin: 20px 20px;
+}
+
+.wrap {
+    width: 100%;
+    max-width: 840px;
+    margin: 0 auto;
+}
+
+hr {
+    margin: 20px 0;
+    border: none;
+    height: 2px;
+    background-color: #555;
+}
+
+a:visited {
+  color: blue;
+}
+
+
+dt {
+	float: left;
+	width: 8em;
+	padding: 1ex 0.4em 0 0.5em;
+	text-align: right;
+	font-weight: bold;
+}
+
+dd {
+	margin: 0 0 0 8.5em;
+	padding: 1ex 0.5em;
+	border-left: 1px solid #aaa;
+    text-align: justify;
+}
+
+
